@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/battleship/Server.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>30</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Karen%20TP/Documents/TEC/2019/II_Semestre/POO/BattleShip/src/Modelo/Cliente.java</file>
+            <file>file:/C:/Users/Karen%20TP/Documents/TEC/2019/II_Semestre/POO/BattleShip/src/Controlador/ControladorCliente.java</file>
+            <file>file:/C:/Users/Karen%20TP/Documents/TEC/2019/II_Semestre/POO/BattleShip/src/Modelo/IObjeto.java</file>
+            <file>file:/C:/Users/Karen%20TP/Documents/TEC/2019/II_Semestre/POO/BattleShip/src/Modelo/Mensaje.java</file>
+            <file>file:/C:/Users/Karen%20TP/Documents/TEC/2019/II_Semestre/POO/BattleShip/src/Modelo/ThreadServer.java</file>
+            <file>file:/C:/Users/Karen%20TP/Documents/TEC/2019/II_Semestre/POO/BattleShip/src/Modelo/FuncionServer.java</file>
+            <file>file:/C:/Users/Karen%20TP/Documents/TEC/2019/II_Semestre/POO/BattleShip/src/battleship/BattleShip.java</file>
+            <file>file:/C:/Users/Karen%20TP/Documents/TEC/2019/II_Semestre/POO/BattleShip/src/Modelo/Server.java</file>
+            <file>file:/C:/Users/Karen%20TP/Documents/TEC/2019/II_Semestre/POO/BattleShip/src/Modelo/ThreadCliente.java</file>
+            <file>file:/C:/Users/Karen%20TP/Documents/TEC/2019/II_Semestre/POO/BattleShip/src/Vista/VentanaChat.java</file>
+        </group>
+    </open-files>
+</project-private>
