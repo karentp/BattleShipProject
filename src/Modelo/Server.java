@@ -26,7 +26,7 @@ public class Server {
     }
     
     public void runServer(){
-        this.playerAmount = 2;
+        this.playerAmount = 4;
         try {
             ServerSocket server = new ServerSocket(8082);
             System.out.println("Servidor Activo: Esperando por Clientes...");

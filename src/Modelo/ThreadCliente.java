@@ -24,6 +24,8 @@ public class ThreadCliente extends Thread{
     private ObjectOutputStream salida;
     private int playerNumber;
     private boolean activo;
+    private int idCliente;
+    
 
     public ThreadCliente(Socket client) {
         this.cliente = client;

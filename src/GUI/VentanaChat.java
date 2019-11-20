@@ -1,5 +1,5 @@
 
-package Vista;
+package GUI;
 
 public class VentanaChat extends javax.swing.JFrame {
 
@@ -28,6 +28,11 @@ public class VentanaChat extends javax.swing.JFrame {
         jButton_Send.setBackground(new java.awt.Color(51, 255, 255));
         jButton_Send.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton_Send.setText("Send");
+        jButton_Send.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_SendActionPerformed(evt);
+            }
+        });
 
         jTextArea_Chat.setColumns(20);
         jTextArea_Chat.setRows(5);
@@ -61,6 +66,10 @@ public class VentanaChat extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton_SendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SendActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_SendActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton_Send;

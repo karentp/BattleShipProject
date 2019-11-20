@@ -27,7 +27,7 @@ public class ThreadServer extends Thread {
     private Server servidor;
     private ObjectInputStream entrada;
     private ObjectOutputStream salida;
-    private ArrayList<Socket> clientes;
+    private ArrayList<Socket> enemigos;
     private int playerNumber;
     private boolean activo;
 
@@ -70,12 +70,12 @@ public class ThreadServer extends Thread {
         this.salida = salida;
     }
 
-    public ArrayList<Socket> getClientes() {
-        return clientes;
+    public ArrayList<Socket> getEnemigos() {
+        return enemigos;
     }
 
-    public void setClientes(ArrayList<Socket> clientes) {
-        this.clientes = clientes;
+    public void setEnemigos(ArrayList<Socket> enemigos) {
+        this.enemigos = enemigos;
     }
     
     
