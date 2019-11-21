@@ -17,9 +17,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import GUI.Boton;
 import Modelo.ActionListenerJuego;
+import Modelo.IObjeto;
+import Modelo.IdEnemigo;
 import Modelo.Mensaje;
+import Modelo.Status;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -40,6 +45,7 @@ public class Juego extends javax.swing.JFrame{
     private Cliente cliente;
     private Mercado ventMercado;
     private Boton[][] botones;
+    private Boton[][] botonesEnemigo;
     private int filas = 20;
     private int columnas = 20;
     private ComponenteObj componenteActual;
@@ -47,8 +53,8 @@ public class Juego extends javax.swing.JFrame{
     private int posYActual;
     
     public Juego(Cliente cliente) {
-        this.cliente=cliente;
         initComponents();
+        this.cliente=cliente;
     }
 
     
@@ -115,12 +121,11 @@ public class Juego extends javax.swing.JFrame{
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         btnBomba = new javax.swing.JButton();
-        btn_J2 = new javax.swing.JButton();
-        btn_J3 = new javax.swing.JButton();
-        btn_J4 = new javax.swing.JButton();
+        btn_enemigo2 = new javax.swing.JButton();
+        btn_enemigo3 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
-        btn_J5 = new javax.swing.JButton();
+        btn_enemigo1 = new javax.swing.JButton();
         btn_Trumpedo = new javax.swing.JButton();
         remolinoButton = new javax.swing.JButton();
         btn_Torpedo = new javax.swing.JButton();
@@ -217,29 +222,31 @@ public class Juego extends javax.swing.JFrame{
         jPanel1.add(btnBomba);
         btnBomba.setBounds(490, 520, 100, 40);
 
-        btn_J2.setBackground(new java.awt.Color(0, 0, 0));
-        btn_J2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_J2.setForeground(new java.awt.Color(255, 255, 255));
-        btn_J2.setText("J2");
-        btn_J2.setToolTipText("");
-        jPanel1.add(btn_J2);
-        btn_J2.setBounds(1150, 110, 70, 25);
+        btn_enemigo2.setBackground(new java.awt.Color(0, 0, 0));
+        btn_enemigo2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_enemigo2.setForeground(new java.awt.Color(255, 255, 255));
+        btn_enemigo2.setText("J2");
+        btn_enemigo2.setToolTipText("");
+        btn_enemigo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_enemigo2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_enemigo2);
+        btn_enemigo2.setBounds(1120, 120, 120, 40);
 
-        btn_J3.setBackground(new java.awt.Color(0, 0, 0));
-        btn_J3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_J3.setForeground(new java.awt.Color(255, 255, 255));
-        btn_J3.setText("J3");
-        btn_J3.setToolTipText("");
-        jPanel1.add(btn_J3);
-        btn_J3.setBounds(1150, 150, 70, 25);
-
-        btn_J4.setBackground(new java.awt.Color(0, 0, 0));
-        btn_J4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_J4.setForeground(new java.awt.Color(255, 255, 255));
-        btn_J4.setText("J4");
-        btn_J4.setToolTipText("");
-        jPanel1.add(btn_J4);
-        btn_J4.setBounds(1150, 190, 70, 25);
+        btn_enemigo3.setBackground(new java.awt.Color(0, 0, 0));
+        btn_enemigo3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_enemigo3.setForeground(new java.awt.Color(255, 255, 255));
+        btn_enemigo3.setText("J3");
+        btn_enemigo3.setToolTipText("");
+        btn_enemigo3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_enemigo3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_enemigo3);
+        btn_enemigo3.setBounds(1120, 180, 120, 40);
 
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -249,13 +256,18 @@ public class Juego extends javax.swing.JFrame{
         jPanel1.add(jScrollPane2);
         jScrollPane2.setBounds(630, 520, 320, 70);
 
-        btn_J5.setBackground(new java.awt.Color(0, 0, 0));
-        btn_J5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_J5.setForeground(new java.awt.Color(255, 255, 255));
-        btn_J5.setText("J1");
-        btn_J5.setToolTipText("");
-        jPanel1.add(btn_J5);
-        btn_J5.setBounds(1150, 80, 70, 25);
+        btn_enemigo1.setBackground(new java.awt.Color(0, 0, 0));
+        btn_enemigo1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_enemigo1.setForeground(new java.awt.Color(255, 255, 255));
+        btn_enemigo1.setText("J1");
+        btn_enemigo1.setToolTipText("");
+        btn_enemigo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_enemigo1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_enemigo1);
+        btn_enemigo1.setBounds(1120, 60, 120, 40);
 
         btn_Trumpedo.setBackground(new java.awt.Color(0, 0, 0));
         btn_Trumpedo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -729,6 +741,25 @@ public class Juego extends javax.swing.JFrame{
     private void txt_FEnergia1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_FEnergia1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_FEnergia1ActionPerformed
+
+    private void btn_enemigo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enemigo3ActionPerformed
+       IdEnemigo enemigo= getEnemigoArray(2);
+       clearEnemigoPanel();
+       posicionarComponentesEnemigo(enemigo);
+    }//GEN-LAST:event_btn_enemigo3ActionPerformed
+
+    private void btn_enemigo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enemigo1ActionPerformed
+       IdEnemigo enemigo= getEnemigoArray(0);
+       clearEnemigoPanel();
+       posicionarComponentesEnemigo(enemigo);
+       
+    }//GEN-LAST:event_btn_enemigo1ActionPerformed
+
+    private void btn_enemigo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enemigo2ActionPerformed
+       IdEnemigo enemigo= getEnemigoArray(1);
+       clearEnemigoPanel();
+       posicionarComponentesEnemigo(enemigo);
+    }//GEN-LAST:event_btn_enemigo2ActionPerformed
     
     public String getImagenComponente(Componentes componente){
         String imagen = "";
@@ -799,6 +830,7 @@ public class Juego extends javax.swing.JFrame{
         //Se crea una matriz de botones segun las filas y columnas entrantes
        
         botones = new Boton[ filas ][ columnas ];
+        botonesEnemigo = new Boton[ filas ][ columnas ];
         
         //Se recorren las filas
         for( int fila = 0 ; fila < filas; fila++ )
@@ -830,22 +862,64 @@ public class Juego extends javax.swing.JFrame{
             for( int columna = 0 ; columna < columnas; columna++ )
             {
                 //Se crea el boton y se agrega a las celda de la matriz
-                botones[fila][columna] = new Boton( 23*columna,23* fila, 25, 25 );
+                botonesEnemigo[fila][columna] = new Boton( 23*columna,23* fila, 25, 25 );
                 
                 //Se da el nombre en forma de coordenada enviando la fila y columna
-                botones[fila][columna].setNombre("");
-                botones[fila][columna].setBackground(new Color(0,61,91));
+                botonesEnemigo[fila][columna].setNombre("");
+                botonesEnemigo[fila][columna].setBackground(new Color(0,61,91));
                 
                 //Se agrega el boton al panel
           
-                enemigoPanel.add(botones[fila][columna] );
+                enemigoPanel.add(botonesEnemigo[fila][columna] );
             }
         }
         enemigoPanel.updateUI();
         
     } 
     
-
+    public void clearEnemigoPanel(){
+        for( int fila = 0 ; fila < filas; fila++ )
+        {
+            //Estando en la fila se recorrer las columnas
+            for( int columna = 0 ; columna < columnas; columna++ )
+            {
+                //Se crea el boton y se agrega a las celda de la matriz
+                
+                //Se da el nombre en forma de coordenada enviando la fila y columna
+                botonesEnemigo[fila][columna].setIcon(null);
+            }
+        }
+        enemigoPanel.updateUI();
+    }
+    
+    public void clearPanel(String panelNombre, JPanel panel){
+        Boton[][] botonesPanel=null;
+        if(panelNombre=="jugadorPanel"){
+            botonesPanel=botones;
+        }
+        else if(panelNombre=="enemigoPanel"){
+            botonesPanel=botonesEnemigo;
+        }
+        
+        for( int fila = 0 ; fila < filas; fila++ )
+        {
+            for( int columna = 0 ; columna < columnas; columna++ )
+            {
+               
+                
+                //Se da el nombre en forma de coordenada enviando la fila y columna
+                botonesPanel[fila][columna].setNombre("");
+                setImage(fila,columna," ",panel,panelNombre);
+                botonesPanel[fila][columna].setBackground(new Color(0,61,91));
+                
+                //Se agrega el boton al panel
+          
+                panel.add(botones[fila][columna] );
+            }
+        }
+        panel.updateUI();
+        
+    }
         
     public ImageIcon getIconoNuevos (String string){
 
@@ -853,28 +927,95 @@ public class Juego extends javax.swing.JFrame{
         ImageIcon img = new ImageIcon(imagen.getImage().getScaledInstance(34, 34, 34));
         return img;
     }
-    public void setImage(int i,int j,String string, JPanel panel){
+    public void setImage(int i,int j,String string, JPanel panel,String nombrePanel){
         ImageIcon imagen;
         if (string=="Vacia"){
              imagen=new ImageIcon();
          }
          imagen= new ImageIcon(string);
          imagen= new ImageIcon(imagen.getImage().getScaledInstance(34, 34, 34));
-         botones[i][j].setIcon(imagen);
-         JButton label=botones[i][j];
-         panel.add(label);
+         JButton boton = null;
+         System.out.println("NOMBRE DEL PANEL: "+panel.getName());
+         if(nombrePanel=="jugadorPanel"){
+            botones[i][j].setIcon(imagen);
+            boton=botones[i][j];
+            jugadorPanel.add(boton);
+         }
+         else if(nombrePanel=="enemigoPanel"){
+            System.out.println("Es enemigo panel");
+            botonesEnemigo[i][j].setIcon(imagen);
+            boton=botonesEnemigo[i][j];
+            System.out.println("Encontró boton:"+boton);
+            //boton.setVisible(true);
+            enemigoPanel.add(boton);
+            enemigoPanel.repaint();
+         }
+         //panel.add(boton);
+         //panel.updateUI();
          
     }
     
     public void posicionarComponente(Componentes componente,int x, int y){
-        ComponenteObj compObjeto= cliente.getFabricaComponentes().crearComponente(componente);
+        componenteActual= cliente.getFabricaComponentes().crearComponente(componente);
+        componenteActual.setPosX(x);
+        componenteActual.setPosY(y);
+        componenteActual.setIdDuenno(cliente.getIdJugador());
         String imagen= getImagenComponente(componente);
         if(hayDisponible(componente)){
-            cliente.getGrafo().setPosTableroLogico(x, y, compObjeto);
-            setImage(x,y,imagen,jugadorPanel);
+            cliente.getGrafo().setPosTableroLogico(x, y, componenteActual);
+            setImage(x,y,imagen,jugadorPanel,"jugadorPanel");
             reducirInventario(componente);  
             colocarCantidadesComponentes();
+            if(componenteActual.getTipo()==Componentes.FUENTEENERGÍA){
+                cliente.clientThread.sendPackage(componenteActual);
+            }
         }
+        else componenteActual=null;
+    }
+    
+    public void posicionarComponentesEnemigo(IdEnemigo enemigo){
+        
+       ArrayList<ComponenteObj> componentesEnemigo=
+               cliente.clientThread.getEnemigosHashTable().get(enemigo);
+       String imagen;
+       int x;
+       int y;
+       //clearPanel(enemigoPanel);
+       System.out.println("componente recibido:"+componentesEnemigo.get(0).getTipo());
+       for(ComponenteObj componente: componentesEnemigo){
+            imagen= getImagenComponente(componente.getTipo());
+            x=componente.getPosX();
+            y=componente.getPosY();
+            setImage(x,y,imagen,enemigoPanel,"enemigoPanel");
+       }
+    }
+    
+    public void actualizarJugadoresID(){
+        this.setTitle("Jugador "+cliente.getIdJugador());
+
+        btn_enemigo1.setText("Jugador "+getNumEnemigoArray(0));
+        System.out.println("Tamaño:"+cliente.getClientThread().getEnemigos().size());
+        if(cliente.getClientThread().getEnemigos().size()>1){
+           btn_enemigo2.setText("Jugador "+getNumEnemigoArray(1)); 
+           btn_enemigo2.setVisible(true);
+        }
+        else{
+           btn_enemigo2.setVisible(false);
+        }
+        if(cliente.getClientThread().getEnemigos().size()>2){
+           btn_enemigo3.setText("Jugador "+getNumEnemigoArray(2)); 
+           btn_enemigo3.setVisible(true);
+        }
+        else{
+            btn_enemigo3.setVisible(false);
+        }
+        
+    }
+    public int getNumEnemigoArray(int i){
+        return cliente.getClientThread().getEnemigos().get(i).getNumEnemigo();
+    }
+    public IdEnemigo getEnemigoArray(int i){
+        return cliente.getClientThread().getEnemigos().get(i);
     }
 
     public Cliente getCliente() {
@@ -983,35 +1124,28 @@ public class Juego extends javax.swing.JFrame{
     }
 
     public JButton getBtn_J2() {
-        return btn_J2;
+        return btn_enemigo2;
     }
 
     public void setBtn_J2(JButton btn_J2) {
-        this.btn_J2 = btn_J2;
+        this.btn_enemigo2 = btn_J2;
     }
 
     public JButton getBtn_J3() {
-        return btn_J3;
+        return btn_enemigo3;
     }
 
     public void setBtn_J3(JButton btn_J3) {
-        this.btn_J3 = btn_J3;
+        this.btn_enemigo3 = btn_J3;
     }
 
-    public JButton getBtn_J4() {
-        return btn_J4;
-    }
-
-    public void setBtn_J4(JButton btn_J4) {
-        this.btn_J4 = btn_J4;
-    }
 
     public JButton getBtn_J5() {
-        return btn_J5;
+        return btn_enemigo1;
     }
 
     public void setBtn_J5(JButton btn_J5) {
-        this.btn_J5 = btn_J5;
+        this.btn_enemigo1 = btn_J5;
     }
 
     public JButton getBtn_Mercado() {
@@ -1176,6 +1310,14 @@ public class Juego extends javax.swing.JFrame{
 
     public JTextArea getjTextArea1() {
         return jTextArea1;
+    }
+
+    public Boton[][] getBotonesEnemigo() {
+        return botonesEnemigo;
+    }
+
+    public void setBotonesEnemigo(Boton[][] botonesEnemigo) {
+        this.botonesEnemigo = botonesEnemigo;
     }
 
     public void setjTextArea1(JTextArea jTextArea1) {
@@ -1414,10 +1556,6 @@ public class Juego extends javax.swing.JFrame{
     private javax.swing.JButton btn_Conector;
     private javax.swing.JButton btn_Disparar;
     private javax.swing.JButton btn_FEnergia;
-    private javax.swing.JButton btn_J2;
-    private javax.swing.JButton btn_J3;
-    private javax.swing.JButton btn_J4;
-    private javax.swing.JButton btn_J5;
     private javax.swing.JButton btn_Mercado;
     private javax.swing.JButton btn_Mina;
     private javax.swing.JButton btn_Multi;
@@ -1425,6 +1563,9 @@ public class Juego extends javax.swing.JFrame{
     private javax.swing.JButton btn_Terminar;
     private javax.swing.JButton btn_Torpedo;
     private javax.swing.JButton btn_Trumpedo;
+    private javax.swing.JButton btn_enemigo1;
+    private javax.swing.JButton btn_enemigo2;
+    private javax.swing.JButton btn_enemigo3;
     private javax.swing.JPanel enemigoPanel;
     private javax.swing.JButton iniciarButton;
     private javax.swing.JButton jButton1;

@@ -27,8 +27,23 @@ public class ControladorCliente  implements ActionListener{
         this.ventana = ventana;
         //this.innit();
     }
-
-
+    public void init(){
+        ventana.getBtn_Fabrica().addActionListener(this);
+    }
+    public void actionPerformed(ActionEvent event) {
+        if (event.getSource().equals(ventana.getBtn_Fabrica())){
+            cliente.clientThread.sendPackage(ventana.getComponenteActual());
+            
+            //cliente.clientThread.sendPackage(new Mensaje(ventana.jTextField_Chat.getText()));
+        }
+    }
+    
+    
+    
+    
+    
+//    }
+//
 //    public void innit(){
 //        ventana.jButton_Send.addActionListener(this);
 //        ventana.setLocationRelativeTo(null);
@@ -37,37 +52,13 @@ public class ControladorCliente  implements ActionListener{
 //
 //    @Override
 //    public void actionPerformed(ActionEvent e) {
+//        if (e.getSource().equals(ventana.jButton_Send))
+//            cliente.clientThread.sendPackage(new Mensaje(ventana.jTextField_Chat.getText()));
+//    }
+//    public void actionPerformed(ActionEvent event) {
 //        if (e.getSource().equals(ventana.jButton_Send))
 //            cliente.clientThread.sendPackage(new Mensaje(ventana.jTextField_Chat.getText()));
 ////    }
-//    public void actionPerformed(ActionEvent event) {
-//        for (int i = 0; i < this.ventana.getFilas(); i++) {
-//            for (int j = 0; j < this.ventana.getColumnas(); j++) {
-//                if(event.getSource().equals(this.ventana.getJuegoPanel().getComponentAt(i, j))){
-//                    System.out.println(i+ ", " +j);
-//                    this.cliente.getGrafo().setPosTableroLogico(i, j,this.ventana.getComponenteActual());
-//                    
-//                    
-//                    
-//                    his.player.definePosFija(i, j);
-//                    this.player.definePosiciones(i, j);
-//                    this.tableroVista.pintarButtonSelec(this.player.getPosOrigen(), this.player.getPosDestino());
-//                    
-//                    switch (this.player.getTableroLogico().getTableroLogico()[i][j].getComponent().getType()){
-//                        case MERCADO:
-//                            this.vistaMercado.show();
-//                            break;
-//                        case MINA:
-//                            this.player.getTableroLogico().getTableroLogico()[i][j].getComponent().setShowVista(true);
-//                            break;
-//                    }
-//                    break;
-//                }   
-//            }
-//        }
-//        if (e.getSource().equals(ventana.jButton_Send))
-//            cliente.clientThread.sendPackage(new Mensaje(ventana.jTextField_Chat.getText()));
-//    }
 //    public void innit(){
 //        ventana.jButton_Send.addActionListener(this);
 //        ventana.setLocationRelativeTo(null);
@@ -80,10 +71,10 @@ public class ControladorCliente  implements ActionListener{
 //            cliente.clientThread.sendPackage(new Mensaje(ventana.jTextField_Chat.getText()));
 //    }
 
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public void actionPerformed(ActionEvent ae) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
     
 }
 

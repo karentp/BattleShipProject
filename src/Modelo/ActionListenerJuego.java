@@ -41,6 +41,7 @@ public class ActionListenerJuego implements ActionListener{
         this.ventJuego.setPosXActual(x);
         this.ventJuego.setPosYActual(y);
         this.boton.setBackground(new Color(5,107,166));
+        
      }
     
 }

@@ -30,6 +30,11 @@ public class Cliente {
     private Grafo grafo;
     private ComponenteFactory fabricaComponentes;
     private Juego juego;
+    private ArrayList<Componentes> enemigo1;
+    private ArrayList<Componentes> enemigo2;
+    private ArrayList<Componentes> enemigo3;
+    private ArrayList<Componentes> enemigo4;
+    private int idJugador;
     
     public Cliente(){
         this.componentesHashTable =new Hashtable<>(); 
@@ -108,6 +113,46 @@ public class Cliente {
         this.grafo = grafo;
     }
 
+    public ArrayList<Componentes> getEnemigo1() {
+        return enemigo1;
+    }
+
+    public void setEnemigo1(ArrayList<Componentes> enemigo1) {
+        this.enemigo1 = enemigo1;
+    }
+
+    public ArrayList<Componentes> getEnemigo2() {
+        return enemigo2;
+    }
+
+    public void setEnemigo2(ArrayList<Componentes> enemigo2) {
+        this.enemigo2 = enemigo2;
+    }
+
+    public ArrayList<Componentes> getEnemigo3() {
+        return enemigo3;
+    }
+
+    public void setEnemigo3(ArrayList<Componentes> enemigo3) {
+        this.enemigo3 = enemigo3;
+    }
+
+    public ArrayList<Componentes> getEnemigo4() {
+        return enemigo4;
+    }
+
+    public void setEnemigo4(ArrayList<Componentes> enemigo4) {
+        this.enemigo4 = enemigo4;
+    }
+
+    public int getIdJugador() {
+        return idJugador;
+    }
+
+    public void setIdJugador(int idJugador) {
+        this.idJugador = idJugador;
+    }
+
     public ArrayList<ComponenteObj> getComponentesCaracteristicas() {
         return componentesCaracteristicas;
     }
@@ -140,6 +185,11 @@ public class Cliente {
             Socket cliente = new Socket(direccionIP, puerto);
             clientThread = new ThreadCliente(cliente);
             setComponentesInicialesCliente();
+            Juego vetJuego= new Juego(this);
+            this.setJuego(vetJuego);
+            vetJuego.setVisible(true);
+            vetJuego.colocarCantidadesComponentes();
+            vetJuego.setMatrizGrafica();
             clientThread.start();
             
         } catch (IOException ex) {
@@ -158,13 +208,11 @@ public class Cliente {
     
     public static void main(String[] args) {
         Cliente clienteNuevo = new Cliente();
+        
         clienteNuevo.connect("localhost", 8082);
-        //ControladorCliente controller = new ControladorCliente(clienteNuevo, new VentanaChat());
-        Juego vetJuego= new Juego(clienteNuevo);
-        clienteNuevo.setJuego(vetJuego);
-        vetJuego.setVisible(true);
-        vetJuego.colocarCantidadesComponentes();
-        vetJuego.setMatrizGrafica();
+        clienteNuevo.clientThread.setCliente(clienteNuevo);
+ 
+        
         //ControladorCliente controller = new ControladorCliente(clienteNuevo, ventJuego);
     }
     

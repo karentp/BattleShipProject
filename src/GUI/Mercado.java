@@ -85,6 +85,7 @@ public class Mercado extends javax.swing.JFrame {
         aceroDisponibleTField = new javax.swing.JTextField();
         precioTField = new javax.swing.JTextField();
         infoTField = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -92,31 +93,27 @@ public class Mercado extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Transacción con:");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(450, 210, 170, 40);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Cantidad:");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(450, 300, 90, 40);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Total:");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(450, 380, 90, 40);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Mercado");
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MercadoLetras.png"))); // NOI18N
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(30, 10, 170, 30);
+        jLabel8.setBounds(140, -10, 297, 140);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Desde/Hacia:");
         jPanel1.add(jLabel11);
         jLabel11.setBounds(450, 70, 130, 40);
@@ -132,9 +129,9 @@ public class Mercado extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_FEnergia);
-        btn_FEnergia.setBounds(100, 120, 100, 40);
+        btn_FEnergia.setBounds(170, 130, 100, 40);
 
-        btn_Vender.setBackground(new java.awt.Color(102, 255, 255));
+        btn_Vender.setBackground(new java.awt.Color(255, 102, 0));
         btn_Vender.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btn_Vender.setForeground(new java.awt.Color(255, 255, 255));
         btn_Vender.setText("Vender");
@@ -171,7 +168,7 @@ public class Mercado extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_Mina);
-        btn_Mina.setBounds(100, 280, 100, 40);
+        btn_Mina.setBounds(170, 290, 100, 40);
 
         btn_Armeria.setBackground(new java.awt.Color(153, 102, 255));
         btn_Armeria.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -184,7 +181,7 @@ public class Mercado extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_Armeria);
-        btn_Armeria.setBounds(100, 400, 100, 40);
+        btn_Armeria.setBounds(170, 410, 100, 40);
 
         btn_Torpedo.setBackground(new java.awt.Color(0, 0, 0));
         btn_Torpedo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -197,7 +194,7 @@ public class Mercado extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_Torpedo);
-        btn_Torpedo.setBounds(230, 150, 100, 30);
+        btn_Torpedo.setBounds(300, 150, 100, 30);
 
         btn_Trumpedo.setBackground(new java.awt.Color(0, 0, 0));
         btn_Trumpedo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -210,7 +207,7 @@ public class Mercado extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_Trumpedo);
-        btn_Trumpedo.setBounds(230, 310, 100, 40);
+        btn_Trumpedo.setBounds(300, 310, 100, 40);
 
         btn_Multi.setBackground(new java.awt.Color(0, 0, 0));
         btn_Multi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -223,7 +220,7 @@ public class Mercado extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_Multi);
-        btn_Multi.setBounds(230, 190, 100, 40);
+        btn_Multi.setBounds(300, 190, 100, 40);
 
         btn_Jugador4.setBackground(new java.awt.Color(0, 0, 0));
         btn_Jugador4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -249,7 +246,7 @@ public class Mercado extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_Barco);
-        btn_Barco.setBounds(230, 370, 100, 40);
+        btn_Barco.setBounds(300, 370, 100, 40);
 
         btn_Mercado1.setBackground(new java.awt.Color(153, 102, 255));
         btn_Mercado1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -262,7 +259,7 @@ public class Mercado extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_Mercado1);
-        btn_Mercado1.setBounds(100, 220, 100, 40);
+        btn_Mercado1.setBounds(170, 230, 100, 40);
 
         btn_Bomba.setBackground(new java.awt.Color(0, 0, 0));
         btn_Bomba.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -275,7 +272,7 @@ public class Mercado extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_Bomba);
-        btn_Bomba.setBounds(230, 250, 100, 40);
+        btn_Bomba.setBounds(300, 250, 100, 40);
 
         btn_Jugador1.setBackground(new java.awt.Color(0, 0, 0));
         btn_Jugador1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -327,9 +324,9 @@ public class Mercado extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_Conector);
-        btn_Conector.setBounds(100, 170, 100, 40);
+        btn_Conector.setBounds(170, 180, 100, 40);
 
-        btn_Comprar.setBackground(new java.awt.Color(51, 255, 204));
+        btn_Comprar.setBackground(new java.awt.Color(255, 102, 102));
         btn_Comprar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btn_Comprar.setForeground(new java.awt.Color(255, 255, 255));
         btn_Comprar.setText("Comprar");
@@ -363,7 +360,6 @@ public class Mercado extends javax.swing.JFrame {
         destinoTField.setBounds(610, 220, 130, 30);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Dinero");
         jPanel1.add(jLabel5);
         jLabel5.setBounds(90, 480, 90, 40);
@@ -421,10 +417,9 @@ public class Mercado extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_Templo);
-        btn_Templo.setBounds(100, 340, 100, 40);
+        btn_Templo.setBounds(170, 350, 100, 40);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Componente:");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(450, 250, 130, 40);
@@ -440,13 +435,11 @@ public class Mercado extends javax.swing.JFrame {
         componenteTField.setBounds(610, 260, 130, 30);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Acero");
         jPanel1.add(jLabel7);
         jLabel7.setBounds(240, 480, 90, 40);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Precio:");
         jPanel1.add(jLabel9);
         jLabel9.setBounds(450, 340, 90, 40);
@@ -471,7 +464,7 @@ public class Mercado extends javax.swing.JFrame {
         jPanel1.add(precioTField);
         precioTField.setBounds(610, 350, 100, 30);
 
-        infoTField.setBackground(new java.awt.Color(51, 153, 255));
+        infoTField.setBackground(new java.awt.Color(255, 102, 51));
         infoTField.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         infoTField.setForeground(new java.awt.Color(255, 255, 255));
         infoTField.addActionListener(new java.awt.event.ActionListener() {
@@ -482,7 +475,14 @@ public class Mercado extends javax.swing.JFrame {
         jPanel1.add(infoTField);
         infoTField.setBounds(520, 470, 280, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/battleship.jpg"))); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MercadoSimbolo.png"))); // NOI18N
+        jLabel10.setText("Mercado");
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(0, -10, 140, 140);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/battleshipFondo.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, -30, 1000, 670);
 
@@ -859,6 +859,7 @@ public class Mercado extends javax.swing.JFrame {
     private javax.swing.JTextField dineroDisponibleTField;
     private javax.swing.JTextField infoTField;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
